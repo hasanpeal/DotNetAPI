@@ -1,0 +1,17 @@
+1. For starting a new project, you can use the following command: dotnet new webapi -o YourProjectName
+
+2. Initially remove all code of Program.cs and only keep:
+    var builder = WebApplication.CreateBuilder(args);
+
+    var app = builder.Build();
+
+    if (app.Environment.IsDevelopment())
+    {
+        app.MapOpenApi();
+    }
+
+    app.UseHttpsRedirection();
+
+    app.Run();
+
+3. Once done setting up ApplicationDbContext: dotnet ef migrations add init -> dotnet ef database update. This will create the tables and columns in the database.
